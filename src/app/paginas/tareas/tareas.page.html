@@ -1,0 +1,49 @@
+
+
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="secondary">
+      <ion-button (click)="clickNuevaTarea()">
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+     
+    </ion-buttons>
+    
+    <ion-title>Lista de Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor =" let tarea of arrayColeccionTareas">
+      <ion-item-options side="start">
+        <ion-item-option color="danger" (click)="clicBotonBorrar(tarea.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+        <ion-item-option (click)="clickEditTarea(tarea.data , tarea.id)">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <!--Nuestro Item-->
+      <ion-item >
+        <ion-label>
+          <h3>{{tarea.data.titulo}}</h3>
+           <p>{{tarea.data.descripcion}}</p> 
+        </ion-label>
+
+        <ion-item>
+          <ion-datetime id="dynamicDisabled" displayFormat="HH:mm" disabled value="{{tarea.data.inicio}}"></ion-datetime>
+        
+        </ion-item>
+        <!-- <ion-label slot="end" class="ion-text-end text-small">
+         
+          <ion-datetime value=" {{tarea.data.inicio}}" display-timezone="utc"></ion-datetime>
+
+        </ion-label> -->
+      </ion-item>
+     
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label>Titulo:</ion-label>
+      <ion-input [(ngModel)]="tareaEditando.titulo" type="text" placeholder="Titulo de la Tarea"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripcion:</ion-label>
+      <ion-input [(ngModel)]="tareaEditando.descripcion" type="text" placeholder="Descripcion Tarea"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Responsable:</ion-label>
+      <ion-input [(ngModel)]="tareaEditando.responsable" type="text" placeholder="Responsable"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="onInsertTask()" expand="block">
+    Anadir o Actualizar Tarea
+  </ion-button>
+  <ion-button (click)="clicBotonCrearNuevo()">Crear Nuevo</ion-button>
+  <ion-button (click)="clicBotonBorrar()">Borrar tarea</ion-button>
+  <h1>LISTA DE TAREAS</h1>
+  <ion-list>
+    <ion-item *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">
+      <ion-grid>
+        <ion-row>
+          <h2>Titulo : {{documentTarea.data.titulo}}</h2>
+        </ion-row>
+        <ion-row>
+          <p>{{documentTarea.data.descripcion}}</p>
+        </ion-row>
+        <ion-row>
+          <p>Responsable : {{documentTarea.data.responsable}}</p>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>

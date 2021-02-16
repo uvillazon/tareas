@@ -1,0 +1,46 @@
+<ion-header>
+  
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="secondary">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
+      </ion-button>
+     
+    </ion-buttons>
+    
+    <ion-title>{{titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Titulo:</ion-label>
+      <ion-input [(ngModel)]="tareaEditando.titulo" type="text" placeholder="Titulo de la Tarea"></ion-input>
+      <!-- <ion-input  type="text" placeholder="Titulo de la Tarea"></ion-input> -->
+    
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripcion:</ion-label>
+      <ion-input [(ngModel)]="tareaEditando.descripcion" type="text" placeholder="Descripcion Tarea"></ion-input>
+      <!-- <ion-input  type="text" placeholder="Descripcion Tarea"></ion-input> -->
+    </ion-item>
+    <ion-item>
+      <ion-label>Inicio:</ion-label>
+      <ion-item>
+          <ion-label></ion-label>
+          <ion-datetime display-format="HH:mm" [(ngModel)]="tareaEditando.inicio"></ion-datetime>
+      </ion-item>
+      </ion-item>
+  </ion-list>
+  <ion-button (click)="clickAddUpdateTask()" expand="block">
+    {{tituloboton}}
+  </ion-button>
+ 
+  <!-- <ion-button (click)="salirSinArgumentos()" expand="block" >
+    Salir sin argumentos
+  </ion-button>
+  <ion-button (click)="salirConArgumentos()" expand="block" >
+    Salir con argumentos
+  </ion-button> -->
+</ion-content>
